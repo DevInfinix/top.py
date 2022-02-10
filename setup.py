@@ -13,8 +13,6 @@ chdir(Path(__file__).parent)
 
 version_regex = compile(r"__version__ = \"(?P<v>[0-9]\.[0-9]{1,2}\.[0-9]+)((a|b|(r)?c)[0-9]+)?\"")
 
-reqs = ["discord.py>=1.5.0"]
-
 with open("./README.md", encoding="utf-8") as readme_file:
     readme = readme_file.read()
 
@@ -35,7 +33,6 @@ setup(
     long_description=readme,
     long_description_content_type="text/markdown",
     include_package_data=True,
-    install_requires=reqs,
     extras_require={
         "tests": ["pytest", "flask", "requests"],
         "docs": ["sphinx", "sphinx-rtd-dark-mode"],
