@@ -13,9 +13,9 @@ def _create_callback(bot, auth, *, disable_warnings: bool = False):
                     logging.warning("Got incorrect authorisation from '{}': {}".format(request.remote, user_auth))
                 return web.Response(body='{"detail": "unauthorized."}', status=401)
         try:
-            vote = Vote(await request.json())
-        except TypeError:
-            return web.Response(body='{"detail": "malformed body."}', status=422)
+            vote = await request.json()
+        except:
+            return
         bot.dispatch("vote", vote)
         return web.Response(body='{"detail": "accepted"}')
 
